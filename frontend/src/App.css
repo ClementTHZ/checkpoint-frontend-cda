@@ -105,3 +105,21 @@ a {
   align-items: center;
   gap: 2rem;
 }
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 35%;
+}
+
+form button {
+  width: 50%;
+}
