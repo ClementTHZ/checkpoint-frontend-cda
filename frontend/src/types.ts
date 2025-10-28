@@ -3,9 +3,9 @@ export type Country = {
     name: string; 
     code: string;
     emoji: string;
-    continent: continent;
+    continent: Continent;
 }
 
-export type continent = {
+export type Continent = {
     name: string
 }

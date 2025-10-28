@@ -29,21 +29,34 @@ export function DetailCountry() {
         });
 
         const data = await response.json(); 
+        console.log(data)
         setCountry(data.data.country)
-        console.log(country)
     }
 
     useEffect(() => {
         if(!code) return
         fetchData({code})
     },[code])
-    return(
-        <div className="page-container">
-            <div className="country-card">
-                <h1 className="emoji">{country?.emoji}</h1>
-                <p>Name: {country?.name}</p>
-                <p>Continent: {country?.continent.name}</p>
+
+    if(!country?.continent || country.continent.name === null){
+        return(
+            <div className="page-container">
+                <div className="country-card">
+                    <h1 className="emoji">{country?.emoji}</h1>
+                    <p>Name: {country?.name}</p>
+                    {/* <p>Continent: {country?.continent.name}</p> */}
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return(
+            <div className="page-container">
+                <div className="country-card">
+                    <h1 className="emoji">{country?.emoji}</h1>
+                    <p>Name: {country?.name}</p>
+                    <p>Continent: {country?.continent.name}</p>
+                </div>
+            </div>
+        )
+    }
 }
