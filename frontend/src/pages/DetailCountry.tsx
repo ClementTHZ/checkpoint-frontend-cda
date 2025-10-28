@@ -38,25 +38,24 @@ export function DetailCountry() {
         fetchData({code})
     },[code])
 
-    if(!country?.continent || country.continent.name === null){
+    // if(!country?.continent || country.continent.name === null){
+    //     return(
+    //         <div className="page-container">
+    //             <div className="country-card">
+    //                 <h1 className="emoji">{country?.emoji}</h1>
+    //                 <p>Name: {country?.name}</p>
+    //             </div>
+    //         </div>
+    //     )
+    // } else {
         return(
             <div className="page-container">
                 <div className="country-card">
                     <h1 className="emoji">{country?.emoji}</h1>
                     <p>Name: {country?.name}</p>
-                    {/* <p>Continent: {country?.continent.name}</p> */}
+                    <p>Continent: {country?.continent?.name}</p>
                 </div>
             </div>
         )
-    } else {
-        return(
-            <div className="page-container">
-                <div className="country-card">
-                    <h1 className="emoji">{country?.emoji}</h1>
-                    <p>Name: {country?.name}</p>
-                    <p>Continent: {country?.continent.name}</p>
-                </div>
-            </div>
-        )
-    }
+    // }
 }
