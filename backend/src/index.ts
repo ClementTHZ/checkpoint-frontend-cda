@@ -11,7 +11,7 @@ import schemaPromise from "./schema";
 const port = process.env.SERVER_PORT || 4000;
 
 const allowedOrigins =
-  process.env.CORS_ALLOWED_ORIGINS || "http://localhost:3000";
+  process.env.CORS_ALLOWED_ORIGINS || "http://localhost:5173";
 
 schemaPromise.then(async (schema) => {
   await db.initialize();
@@ -20,7 +20,7 @@ schemaPromise.then(async (schema) => {
   const plugins = [ApolloServerPluginDrainHttpServer({ httpServer })];
   const server = new ApolloServer({ schema, plugins });
   await server.start();
-  const corsConfig = { origin: allowedOrigins.split(","), credentials: true };
+  const corsConfig = { origin: allowedOrigins.split(","), credentials: false };
   app.use(cors<cors.CorsRequest>(corsConfig));
   const context = async ({ req, res }: any) => ({ req, res });
   const expressMW = expressMiddleware(server, { context });
