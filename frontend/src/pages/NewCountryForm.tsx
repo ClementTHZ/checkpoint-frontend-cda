@@ -7,7 +7,7 @@ export function NewCountryForm() {
         name: "", 
         code: "", 
         emoji: "",
-        continent: "" 
+        // continent: "" 
     });
 
     function handleChangeName (e: React.ChangeEvent<HTMLInputElement>) {
@@ -23,9 +23,9 @@ export function NewCountryForm() {
         setCountry({...country, emoji: e.target.value})
     };
 
-    function handleChangeContinent (e: React.ChangeEvent<HTMLSelectElement>) {
-        setCountry({...country, continent: e.target.value})
-    };
+    // function handleChangeContinent (e: React.ChangeEvent<HTMLSelectElement>) {
+    //     setCountry({...country, continent: e.target.value})
+    // };
 
     async function addCountry(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault()
@@ -63,7 +63,7 @@ export function NewCountryForm() {
 
                 <input type="text" placeholder="Emoji" onChange={handleChangeEmoji}/>
 
-                <select onChange={handleChangeContinent}>
+                {/* <select onChange={handleChangeContinent}>
                     <option value="">Sélectionner un continent</option>
                     <option value="Europe">Europe</option>
                     <option value="Asie">Asie</option>
@@ -71,7 +71,7 @@ export function NewCountryForm() {
                     <option value="Amérique du Nord">Amérique du Nord</option>
                     <option value="Amérique du Sud">Amérique du Sud</option>
                     <option value="Océanie">Océanie</option>
-                </select>
+                </select> */}
 
                 <button type="submit" className="button-cadet" onClick={(e) => addCountry(e)}>Ajouter</button>
             </form>
